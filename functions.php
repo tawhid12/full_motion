@@ -3,9 +3,11 @@ function full_motion_dev(){
 	load_theme_textdomain("Full Motion");
 	add_theme_support("post-thumbnails");
 	add_theme_support("title-tag");
+	add_theme_support('post-formats',array('audio'));
+	add_image_size('post-image',350,198);
 }
 add_action("after_setup_theme","full_motion_dev");
-
+add_filter("wp_calculate_image_srcset","__return_null");
 /*Load Assets file*/
 function load_motion_scripts(){
 	wp_enqueue_style("motion-main-style", get_template_directory_uri() ."/assets/css/main.css");
